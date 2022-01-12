@@ -7,6 +7,49 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image x:Name="PizzaBackground" Grid.Column="0" Grid.ColumnSpan="11" Grid.Row="0" Grid.RowSpan="9" Source="Images\PizzaBackground.jpg" Stretch="Fill" Opacity="0.5"/>
+
+        <TextBlock x:Name="tbBestellingen" Text="Bestellingen" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Bold"></TextBlock>
+        <ListView x:Name="lvBestellingen" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="4"></ListView>
+
+        <TextBlock x:Name="tbBereiden" Text="Bereiden" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Bold"></TextBlock>
+        <ListView x:Name="lvBereiden" Grid.Column="3" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="4"></ListView>
+        <Button x:Name="btnBereidenToevoegen" Grid.Column="3" Grid.Row="7" Height="40" Width="125" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Toevoegen" FontSize="20"></Button>
+
+        <TextBlock x:Name="tbOven" Text="In de Oven" Grid.Column="5" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Bold"></TextBlock>
+        <ListView x:Name="lvOven" Grid.Column="5" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="4"></ListView>
+        <Button x:Name="btnOvenToevoegen" Grid.Column="5" Grid.Row="7" Height="40" Width="125" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Toevoegen" FontSize="20"></Button>
+
+        <TextBlock x:Name="tbVoltooid" Text="Klaar" Grid.Column="7" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Bold"></TextBlock>
+        <ListView x:Name="lvVoltooid" Grid.Column="7" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="4"></ListView>
+        <Button x:Name="btnVoltooidToevoegen" Grid.Column="7" Grid.Row="7" Height="40" Width="125" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Toevoegen" FontSize="20"></Button>
+
+        <TextBlock x:Name="tbVerzenden" Text="Onderweg" Grid.Column="9" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Bold"></TextBlock>
+        <ListView x:Name="lvVerzenden" Grid.Column="9" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="4"></ListView>
+        <Button x:Name="btnVerzendenToevoegen" Grid.Column="9" Grid.Row="7" Height="40" Width="125" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Toevoegen" FontSize="20"></Button>
     </Grid>
 </Window>
