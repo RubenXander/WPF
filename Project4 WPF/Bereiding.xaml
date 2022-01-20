@@ -1,0 +1,73 @@
+﻿<Window x:Class="Project4_WPF.Bereiding"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project4_WPF"
+        mc:Ignorable="d"
+        Title="Bereiding" Height="450" Width="900">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image x:Name="PizzaBackground" Grid.Column="0" Grid.ColumnSpan="11" Grid.Row="0" Grid.RowSpan="10" Source="Images\PizzaBackground.jpg" Stretch="Fill" Opacity="0.5"/>
+
+        <TextBlock x:Name="tbBestellingen" Text="Bestellingen" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></TextBlock>
+        <ListView x:Name="lvBestellingen" Grid.Column="3" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="5" ItemsSource="{Binding order}" SelectedItem="{Binding SelectedOrders, UpdateSourceTrigger=PropertyChanged}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0} {1} {2}" >
+                                <Binding Path="Id"/>
+                                <Binding Path="Customer_id"/>
+                                <Binding Path="Status"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <TextBlock x:Name="tbPizza" Text="Pizza" Grid.Column="5" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></TextBlock>
+        <ListView x:Name="lvPizza" Grid.Column="5" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="5">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0} {1}">
+                                <Binding ElementName="lvBestellingen" Path="SelectedValue.Pizza"/>
+                                <Binding ElementName="lvBestellingen" Path="SelectedValue.Grote"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <TextBlock x:Name="tbIngredienten" Text="Ingredienten" Grid.Column="7" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></TextBlock>
+        <ListView x:Name="lvIngredienten" Grid.Column="7" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="5"></ListView>
+    </Grid>
+</Window>

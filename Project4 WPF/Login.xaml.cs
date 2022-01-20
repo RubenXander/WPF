@@ -35,10 +35,26 @@ namespace Project4_WPF
             {
                 string sWachtwoord = login.Wachtwoord.ToString();
                 MessageBox.Show("ID " + iLogin + " Wachtwoord " + sWachtwoord);
-                bool bWachtwoord = BCrypt.Net.BCrypt.Verify(tbGebruikersnaam.Text, tbWachtwoord.Text);
+                bool bWachtwoord = BCrypt.Net.BCrypt.Verify(tbWachtwoord.Text, sWachtwoord);
                 if (bWachtwoord == true)
                 {
+                    User_Roles Roles = cnn.GetRoles(login.Id.ToString());
                     MessageBox.Show("ingelogd");
+
+                    switch (Roles.role_Id)
+                    {
+                        case 1: 
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            Bereiding win = new Bereiding();
+                            win.Show();
+                            this.Close();
+                            break;
+                        default:
+                            break;
+                    }
                 }
                 else if (bWachtwoord == false)
                 {
@@ -50,9 +66,7 @@ namespace Project4_WPF
                 MessageBox.Show("Gebruikersnaam incorrect");
             }
 
-            //MainWindow win = new MainWindow();
-            //win.Show();
-            //this.Close();
+            
         }
     }
 }

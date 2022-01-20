@@ -40,6 +40,34 @@ namespace Project4_WPF.Classes
 
             return ocReturnMenus;
         }
+        public ObservableCollection<Orders> GetAllOrders()
+        {
+            ObservableCollection<Orders> ocReturnMenus = new ObservableCollection<Orders>();
+
+            DataTable dtUsers = new DataTable();
+            using (MySqlConnection con = new MySqlConnection(connString))
+            {
+                con.Open();
+                MySqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT orders.*, order_pizza.* FROM orders JOIN order_pizza on orders.id = order_pizza.order_id";
+                MySqlDataReader reader = cmd.ExecuteReader();
+                dtUsers.Load(reader);
+            }
+
+            foreach (DataRow row in dtUsers.Rows)
+            {
+                Orders tmpMenu = new Orders();
+                tmpMenu.Id = Convert.ToInt32(row["id"].ToString());
+                tmpMenu.Customer_id = Convert.ToInt32(row["customer_id"].ToString());
+                tmpMenu.Status = row["status"].ToString();
+                tmpMenu.Pizza = row["pizza"].ToString();
+                tmpMenu.Grote = row["grote"].ToString();
+                ocReturnMenus.Add(tmpMenu);
+            }
+
+            return ocReturnMenus;
+        }
+
         public User GetLogin(string gebruikersnaam)
         {
             User login = new User();
@@ -57,6 +85,27 @@ namespace Project4_WPF.Classes
                 {
                     login.Id = Convert.ToInt32(row["id"].ToString());
                     login.Wachtwoord = row["password"].ToString();
+                }
+                return login;
+            };
+        }
+
+        public User_Roles GetRoles(string UserId)
+        {
+            User_Roles login = new User_Roles();
+            DataTable DTinloggen = new DataTable();
+            using (MySqlConnection con = new MySqlConnection(connString))
+            {
+                con.Open();
+                MySqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT * FROM user_roles WHERE user_id = @userid";
+                cmd.Parameters.AddWithValue("@userid", UserId);
+                MySqlDataReader read = cmd.ExecuteReader();
+                DTinloggen.Load(read);
+
+                foreach (DataRow row in DTinloggen.Rows)
+                {
+                    login.role_Id = Convert.ToInt32(row["role_id"].ToString());
                 }
                 return login;
             };

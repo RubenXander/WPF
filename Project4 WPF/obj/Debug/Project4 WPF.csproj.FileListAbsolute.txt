@@ -2,11 +2,9 @@ C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\bin\Debu
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\bin\Debug\Project4 WPF.exe
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\bin\Debug\Project4 WPF.pdb
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Project4 WPF.csproj.AssemblyReference.cache
-C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\MainWindow.g.cs
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\App.g.cs
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Project4 WPF_MarkupCompile.cache
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Project4 WPF_MarkupCompile.lref
-C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\MainWindow.baml
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Project4 WPF.g.resources
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Project4_WPF.Properties.Resources.resources
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Project4 WPF.csproj.GenerateResource.cache
@@ -41,3 +39,5 @@ C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debu
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\bin\Debug\BCrypt.Net.dll
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\bin\Debug\BCrypt.Net.pdb
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\bin\Debug\BCrypt.Net.xml
+C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Bereiding.g.cs
+C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Bereiding.baml
