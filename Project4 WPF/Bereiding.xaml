@@ -5,11 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project4_WPF"
         mc:Ignorable="d"
+        Closing="Window_Closing"
         Title="Bereiding" Height="450" Width="900">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"></ColumnDefinition>
             <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="40"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="40"></ColumnDefinition>
@@ -32,18 +35,17 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="10"></RowDefinition>
         </Grid.RowDefinitions>
-        <Image x:Name="PizzaBackground" Grid.Column="0" Grid.ColumnSpan="11" Grid.Row="0" Grid.RowSpan="10" Source="Images\PizzaBackground.jpg" Stretch="Fill" Opacity="0.5"/>
+        <Image x:Name="PizzaBackground" Grid.Column="0" Grid.ColumnSpan="13" Grid.Row="0" Grid.RowSpan="10" Source="C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\Images\PizzaBackground.jpg" Stretch="Fill" Opacity="0.5"/>
 
         <TextBlock x:Name="tbBestellingen" Text="Bestellingen" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></TextBlock>
-        <ListView x:Name="lvBestellingen" Grid.Column="3" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="5" ItemsSource="{Binding order}" SelectedItem="{Binding SelectedOrders, UpdateSourceTrigger=PropertyChanged}">
+        <ListView x:Name="lvBestellingen" Grid.Column="3" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="5" ItemsSource="{Binding Order}" SelectedItem="{Binding SelectedOrders, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="lvBestellingen_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
                         <TextBlock.Text>
-                            <MultiBinding StringFormat="{}{0} {1} {2}" >
+                            <MultiBinding StringFormat="{}Bestelling {0} KlantId {1}" >
                                 <Binding Path="Id"/>
                                 <Binding Path="Customer_id"/>
-                                <Binding Path="Status"/>
                             </MultiBinding>
                         </TextBlock.Text>
                     </TextBlock>
@@ -52,22 +54,35 @@
         </ListView>
 
         <TextBlock x:Name="tbPizza" Text="Pizza" Grid.Column="5" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></TextBlock>
-        <ListView x:Name="lvPizza" Grid.Column="5" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="5">
+        <ListView x:Name="lvPizza" Grid.Column="5" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="5" ItemsSource="{Binding Order}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock>
-                        <TextBlock.Text>
-                            <MultiBinding StringFormat="{}{0} {1}">
-                                <Binding ElementName="lvBestellingen" Path="SelectedValue.Pizza"/>
-                                <Binding ElementName="lvBestellingen" Path="SelectedValue.Grote"/>
-                            </MultiBinding>
-                        </TextBlock.Text>
-                    </TextBlock>
+                    <TextBlock Text="{Binding ElementName=lvBestellingen, Path=SelectedValue.Pizza}"></TextBlock>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
         <TextBlock x:Name="tbIngredienten" Text="Ingredienten" Grid.Column="7" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></TextBlock>
         <ListView x:Name="lvIngredienten" Grid.Column="7" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="5"></ListView>
+
+        <TextBlock x:Name="tbStatus" Text="Status" Grid.Column="9" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></TextBlock>
+        <ListView x:Name="lvStatus" Grid.Column="9" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="5"></ListView>
+        
+        <Border Grid.Column="9" Grid.Row="3" BorderBrush="Black" BorderThickness="1" Height="40" Width="125">
+            <TextBlock x:Name="tblvStatus" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Text="{Binding ElementName=lvBestellingen, Path=SelectedValue.Status}"></TextBlock>
+        </Border>
+        
+        <ComboBox x:Name="cbStatus" Grid.Column="9" Grid.Row="4" Width="125" Height="25">
+            <ComboBoxItem Content="Bereid"></ComboBoxItem>
+            <ComboBoxItem Content="In de oven"></ComboBoxItem>
+            <ComboBoxItem Content="Klaar voor bezorging"></ComboBoxItem>
+            <ComboBoxItem Content="Klaar om op te halen"></ComboBoxItem>
+        </ComboBox>
+        <TextBlock Grid.Column="9" Grid.Row="5" Text="" ></TextBlock>
+        <Button x:Name="btnStatus" Grid.Column="9" Grid.Row="7" Height="50" Width="150" Content="Aanpassen"></Button>
+
+        <Button x:Name="BtnUitloggen" Grid.Column="10" Grid.ColumnSpan="2" Grid.Row="8" Height="30" Content="Uitloggen" Click="btnUitloggen_Click"></Button>
+        
+        <TextBlock Grid.Row="8" Grid.Column="3" Text="{Binding ElementName=lvBestellingen, Path=SelectedValue.Pizza}"></TextBlock>
     </Grid>
 </Window>

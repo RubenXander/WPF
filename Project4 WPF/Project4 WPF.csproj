@@ -118,13 +118,28 @@
     </Compile>
     <Compile Include="Classes\DbConnection.cs" />
     <Compile Include="Classes\Orders.cs" />
+    <Compile Include="Classes\Roles.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\User_Roles.cs" />
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Page Include="Management.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ManagementToevoegen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Management.xaml.cs">
+      <DependentUpon>Management.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ManagementToevoegen.xaml.cs">
+      <DependentUpon>ManagementToevoegen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -157,5 +172,6 @@
   <ItemGroup>
     <Resource Include="Images\PizzaBackground.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

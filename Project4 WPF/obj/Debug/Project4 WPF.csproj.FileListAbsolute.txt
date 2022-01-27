@@ -33,11 +33,15 @@ C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\bin\Debu
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\bin\Debug\System.Memory.xml
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Login.g.cs
-C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Login.baml
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Project4 WPF.csproj.CopyComplete
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\bin\Debug\BCrypt.Net.dll
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\bin\Debug\BCrypt.Net.pdb
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\bin\Debug\BCrypt.Net.xml
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Bereiding.g.cs
+C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Login.g.cs
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Bereiding.baml
+C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Login.baml
+C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Management.g.cs
+C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Management.baml
+C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\ManagementToevoegen.g.cs
+C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\ManagementToevoegen.baml

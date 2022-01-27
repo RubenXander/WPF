@@ -18,50 +18,27 @@ using System.Windows.Shapes;
 namespace Project4_WPF
 {
     /// <summary>
-    /// Interaction logic for Bereiding.xaml
+    /// Interaction logic for Management.xaml
     /// </summary>
-    public partial class Bereiding : Window, INotifyPropertyChanged
+    public partial class Management : Window, INotifyPropertyChanged
     {
         DbConnection cnn = new DbConnection();
-        
-        #region classes 
+        private int click = 0;
         private ObservableCollection<User> user;
-        private ObservableCollection<Orders> order;
-
+        
         public ObservableCollection<User> User
         {
             get { return user; }
             set { user = value; NotifyPropertyChanged(); }
         }
-
-        public ObservableCollection<Orders> Order
-        {
-            get { return order; }
-            set { order = value; NotifyPropertyChanged(); }
-        }
-
-        private Orders selectedOrders;
-
-        public Orders SelectedOrders
-        {
-            get { return selectedOrders; }
-            set { selectedOrders = value; NotifyPropertyChanged(); }
-        }
-        #endregion
-
-        public Bereiding()
+        public Management()
         {
             InitializeComponent();
-            DataContext = this;
             LoadAssets();
         }
         private void LoadAssets()
         {
-            Order = cnn.GetAllOrders();
-        }
-        private void LoadPizza()
-        {
-            lvPizza.ItemsSource = cnn.GetAllPizza(SelectedOrders.Id);
+            lvWerknemers.ItemsSource = cnn.GetAllUsers();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -71,20 +48,27 @@ namespace Project4_WPF
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(Property));
         }
 
-        private void btnUitloggen_Click(object sender, RoutedEventArgs e)
+        private void btnToevoegen_Click(object sender, RoutedEventArgs e)
         {
+            ManagementToevoegen win = new ManagementToevoegen();
+            click = 1;
+            win.Show();
             this.Close();
+            click = 0;
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            Login win = new Login();
-            win.Show();
-        }
+            Login win2 = new Login();
+         
+            if (click == 0)
+            {
+                win2.Show();
+            }
+            else
+            {
 
-        private void lvBestellingen_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            LoadPizza();
+            }
         }
     }
 }

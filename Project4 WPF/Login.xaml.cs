@@ -43,13 +43,20 @@ namespace Project4_WPF
 
                     switch (Roles.role_Id)
                     {
-                        case 1: 
+                        case 1:
                             break;
                         case 2:
                             break;
                         case 3:
-                            Bereiding win = new Bereiding();
-                            win.Show();
+                            Bereiding win3 = new Bereiding();
+                            win3.Show();
+                            this.Close();
+                            break;
+                        case 4:
+                            break;
+                        case 5:
+                            Management win5 = new Management();
+                            win5.Show();
                             this.Close();
                             break;
                         default:
