@@ -7,45 +7,128 @@
         mc:Ignorable="d"
         Closing="Window_Closing"
         Title="Management" Height="600" Width="700">
-    <Grid>
+    <Grid x:Name="MainGrid" Background="#FF131313">
+        <!--#region GridColumns&Rows -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="10"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="10"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="10"></RowDefinition>
         </Grid.RowDefinitions>
+        <!--#endregion-->
+        
+        <Button x:Name="btnGridPizzas" Grid.Column="2" Grid.Row="2" Height="50" Width="150" Content="Pizzas" FontSize="20" Click="btnGridPizzas_Click"></Button>
+        <Button x:Name="btnGridEmployees" Grid.Column="4" Grid.Row="2" Height="50" Width="150" Content="Medewerkers" FontSize="20" Click="btnGridEmployees_Click"></Button>
 
-        <ListView x:Name="lvWerknemers" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="4" ItemsSource="{Binding User}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock>
-                        <TextBlock.Text>
-                            <MultiBinding StringFormat="{}{1} {2}">
-                                <Binding Path="Id"></Binding>
-                                <Binding Path="Naam"></Binding>
-                                <Binding Path="e_Mail"></Binding>
-                            </MultiBinding>
-                        </TextBlock.Text>
-                    </TextBlock>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <Button x:Name="btnUitloggen" Grid.Column="5" Grid.Row="4" Height="35" Width="100" Content="Uitloggen" FontSize="20" Click="btnUitloggen_Click"></Button>
+        
+        <Canvas x:Name="csEmployees" Visibility="Hidden">
+            <Grid Width="{Binding ElementName=MainGrid, Path=ActualWidth}" Height="{Binding ElementName=MainGrid, Path=ActualHeight}">
+                
+                <!--#region GridColumns&Rows -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="10"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="10"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!--#endregion-->
 
-        <Button x:Name="btnToevoegen" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="2" Height="40" Width="150" Content="Aanmaken" Click="btnToevoegen_Click"></Button>
-        <Button Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="3" Height="40" Width="150" Content="Wijzigen"></Button>
-        <Button Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="4" Height="40" Width="150" Content="Verwijderen"></Button>
+                <ListView x:Name="lvWerknemers" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="4" ItemsSource="{Binding User}" SelectedItem="{Binding SelectedMedewerker, UpdateSourceTrigger=PropertyChanged}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{1} {2}">
+                                        <Binding Path="Id"></Binding>
+                                        <Binding Path="Naam"></Binding>
+                                        <Binding Path="e_Mail"></Binding>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Button x:Name="btnToevoegen" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="2" Height="40" Width="150" Content="Aanmaken" Click="btnToevoegen_Click"></Button>
+                <Button x:Name="btnWijzigen" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="3" Height="40" Width="150" Content="Wijzigen" Click="btnWijzigen_Click"></Button>
+                <Button x:Name="btnVerwijderen" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="4" Height="40" Width="150" Content="Verwijderen" Click="btnVerwijderen_Click"></Button>
+
+                <Button x:Name="btnBack" Grid.Column="6" Grid.Row="5" Height="35" Width="75" Content="Terug" FontSize="20" Click="btnBack_Click"></Button>
+            </Grid>
+        </Canvas>
+
+        <Canvas x:Name="csPizzas" Visibility="Hidden">
+            <Grid Width="{Binding ElementName=MainGrid, Path=ActualWidth}" Height="{Binding ElementName=MainGrid, Path=ActualHeight}">
+                
+                <!--#region GridColumns&Rows -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="10"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="10"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!--#endregion-->
+
+                <ListView x:Name="lvPizzas" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="4" ItemsSource="{Binding Pizza}" SelectedItem="{Binding SelectedPizza, UpdateSourceTrigger=PropertyChanged}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}  {1}">
+                                        <Binding Path="Pizzas"></Binding>
+                                        <Binding Path="Prijs"></Binding>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Button x:Name="btnToevoegenP" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="2" Height="40" Width="150" Content="Aanmaken" Click="btnToevoegenP_Click"></Button>
+                <Button x:Name="btnWijzigenP" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="3" Height="40" Width="150" Content="Wijzigen" Click="btnWijzigenP_Click"></Button>
+                <Button x:Name="btnVerwijderenP" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="4" Height="40" Width="150" Content="Verwijderen" Click="btnVerwijderenP_Click"></Button>
+                
+                <Button x:Name="btnBackP" Grid.Column="6" Grid.Row="5" Height="35" Width="75" Content="Terug" FontSize="20" Click="btnBackP_Click"></Button>
+            </Grid>
+        </Canvas>
+        
     </Grid>
 </Window>

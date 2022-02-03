@@ -118,6 +118,7 @@
     </Compile>
     <Compile Include="Classes\DbConnection.cs" />
     <Compile Include="Classes\Orders.cs" />
+    <Compile Include="Classes\Pizza.cs" />
     <Compile Include="Classes\Roles.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\User_Roles.cs" />
@@ -128,7 +129,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ManagementToevoegen.xaml">
+    <Page Include="ManagementMedewerkersAanpassen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ManagementMedewerkersToevoegen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ManagementPizzaAanpassen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ManagementPizzaToevoegen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -137,8 +150,17 @@
     <Compile Include="Management.xaml.cs">
       <DependentUpon>Management.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ManagementToevoegen.xaml.cs">
-      <DependentUpon>ManagementToevoegen.xaml</DependentUpon>
+    <Compile Include="ManagementMedewerkersAanpassen.xaml.cs">
+      <DependentUpon>ManagementMedewerkersAanpassen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ManagementMedewerkersToevoegen.xaml.cs">
+      <DependentUpon>ManagementMedewerkersToevoegen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ManagementPizzaAanpassen.xaml.cs">
+      <DependentUpon>ManagementPizzaAanpassen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ManagementPizzaToevoegen.xaml.cs">
+      <DependentUpon>ManagementPizzaToevoegen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

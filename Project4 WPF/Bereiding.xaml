@@ -38,7 +38,7 @@
         <Image x:Name="PizzaBackground" Grid.Column="0" Grid.ColumnSpan="13" Grid.Row="0" Grid.RowSpan="10" Source="C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\Images\PizzaBackground.jpg" Stretch="Fill" Opacity="0.5"/>
 
         <TextBlock x:Name="tbBestellingen" Text="Bestellingen" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></TextBlock>
-        <ListView x:Name="lvBestellingen" Grid.Column="3" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="5" ItemsSource="{Binding Order}" SelectedItem="{Binding SelectedOrders, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="lvBestellingen_SelectionChanged">
+        <ListView x:Name="lvBestellingen" Grid.Column="3" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="5" ItemsSource="{Binding Order}" SelectedItem="{Binding SelectedOrders}" SelectionChanged="lvBestellingen_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
@@ -68,18 +68,17 @@
         <TextBlock x:Name="tbStatus" Text="Status" Grid.Column="9" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></TextBlock>
         <ListView x:Name="lvStatus" Grid.Column="9" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="5"></ListView>
         
-        <Border Grid.Column="9" Grid.Row="3" BorderBrush="Black" BorderThickness="1" Height="40" Width="125">
-            <TextBlock x:Name="tblvStatus" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Text="{Binding ElementName=lvBestellingen, Path=SelectedValue.Status}"></TextBlock>
+        <Border Grid.Column="9" Grid.Row="3" BorderBrush="Black" BorderThickness="0.5" Height="40" Width="125">
+            <Viewbox Width="115" DataContext="{Binding SelectedOrders}">
+                <TextBlock x:Name="tblvStatus" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"  Text="{Binding Status}" ></TextBlock>
+            </Viewbox>
         </Border>
-        
-        <ComboBox x:Name="cbStatus" Grid.Column="9" Grid.Row="4" Width="125" Height="25">
-            <ComboBoxItem Content="Bereid"></ComboBoxItem>
-            <ComboBoxItem Content="In de oven"></ComboBoxItem>
-            <ComboBoxItem Content="Klaar voor bezorging"></ComboBoxItem>
-            <ComboBoxItem Content="Klaar om op te halen"></ComboBoxItem>
-        </ComboBox>
+
+        <ComboBox x:Name="cbStatus" Grid.Column="9" Grid.Row="4" Width="125" Height="25" SelectedItem="{Binding SelectedStatus}" ItemsSource="{Binding Stati}"/>
+
+
         <TextBlock Grid.Column="9" Grid.Row="5" Text="" ></TextBlock>
-        <Button x:Name="btnStatus" Grid.Column="9" Grid.Row="7" Height="50" Width="150" Content="Aanpassen"></Button>
+        <Button x:Name="btnStatus" Grid.Column="9" Grid.Row="7" Height="50" Width="150" Content="Aanpassen" Click="btnStatus_Click"></Button>
 
         <Button x:Name="BtnUitloggen" Grid.Column="10" Grid.ColumnSpan="2" Grid.Row="8" Height="30" Content="Uitloggen" Click="btnUitloggen_Click"></Button>
         

@@ -1,0 +1,37 @@
+﻿<Window x:Class="Project4_WPF.ManagementPizzaAanpassen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project4_WPF"
+        mc:Ignorable="d"
+        Closing="Window_Closing"
+        Title="ManagementPizzaAanpassen" Height="250" Width="300">
+    <Grid>
+        <!--#region GridColumns&Rows -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!--#endregion-->
+        <TextBox x:Name="tbId" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" IsReadOnly="True"></TextBox>
+        <TextBlock Grid.Column="1" Grid.Row="2" Text="Pizzanaam" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5"></TextBlock>
+        <TextBox x:Name="tbPizza" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120"></TextBox>
+
+        <TextBlock Grid.Column="1" Grid.Row="3" Text="Prijs €" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5"></TextBlock>
+        <TextBox x:Name="tbPrijs" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120"></TextBox>
+
+        <Button x:Name="btnAanpassen" Grid.Column="3" Grid.Row="4" Content="Aanpassen" Height="40" Width="120" Click="btnAanpassen_Click"></Button>
+    </Grid>
+</Window>

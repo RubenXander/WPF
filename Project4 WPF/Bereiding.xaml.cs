@@ -47,6 +47,22 @@ namespace Project4_WPF
             get { return selectedOrders; }
             set { selectedOrders = value; NotifyPropertyChanged(); }
         }
+
+        private string selectedStatus;
+
+        public string SelectedStatus
+        {
+            get { return selectedStatus; }
+            set { selectedStatus = value; }
+        }
+
+        private List<string> stati = new List<string>() { "Bereid", "In de oven", "Klaar voor bezorging", "Klaar om op te halen" };
+
+        public List<string> Stati
+        {
+            get { return stati; }
+        }
+
         #endregion
 
         public Bereiding()
@@ -61,6 +77,10 @@ namespace Project4_WPF
         }
         private void LoadPizza()
         {
+            if (SelectedOrders == null)
+            {
+                return;
+            }
             lvPizza.ItemsSource = cnn.GetAllPizza(SelectedOrders.Id);
         }
 
@@ -69,11 +89,6 @@ namespace Project4_WPF
         public void NotifyPropertyChanged(string Property = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(Property));
-        }
-
-        private void btnUitloggen_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -85,6 +100,20 @@ namespace Project4_WPF
         private void lvBestellingen_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             LoadPizza();
+        }
+
+        private void btnStatus_Click(object sender, RoutedEventArgs e)
+        {
+            Orders O = new Orders();
+            O.Status = SelectedStatus;
+
+            cnn.EditStatus(O, SelectedOrders.Id);
+            LoadAssets();
+        }
+        
+        private void btnUitloggen_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
