@@ -39,9 +39,13 @@ namespace Project4_WPF
 
         private void btnAanmaken_Click(object sender, RoutedEventArgs e)
         {
+            //maakt de salt en hash aan
+
             DbConnection Connection = new DbConnection();
             salt = BCrypt.Net.BCrypt.GenerateSalt();
             hash = BCrypt.Net.BCrypt.HashPassword(tbWachtwoord.Text, salt);
+
+            //kijkt of de velden zijn ingevuld
 
             if (tbNaam.Text == "" || tbE_Mail.Text == "" || tbWachtwoord.Text == "" || CBselected == -1)
             {
@@ -49,13 +53,19 @@ namespace Project4_WPF
             }
             else
             {
+                //verbind de textboxen aan de gelinkte class waarde
+
                 User U = new User();
                 U.Naam = tbNaam.Text;
                 U.e_Mail = tbE_Mail.Text;
                 U.Wachtwoord = hash;
 
+                //maakt de nieuwe user aan
+
                 cnn.CreateEmployees(U);
                 
+                //koppeld de gebruiker gegevens aan de koppel tabel
+
                 User user = cnn.GetLogin(tbE_Mail.Text);
                 User_Roles US = new User_Roles();
                 US.user_Id = int.Parse(user.Id.ToString());
@@ -63,6 +73,8 @@ namespace Project4_WPF
                 User_Roles UR = new User_Roles();
                 UR.role_Id = int.Parse(U.Id.ToString());
                 UR.user_Id = US.user_Id;
+
+                //kijkt welke rol er is geselecteerd
 
                 CBselected = int.Parse(cbRole.SelectedIndex.ToString());
                 switch (CBselected)

@@ -26,6 +26,7 @@ namespace Project4_WPF
         private string password;
         int CBselected;
         bool function = true;
+        //haalt de verstuurde gegevens op 
         public ManagementMedewerkersAanpassen(User users)
         {
             InitializeComponent();
@@ -34,11 +35,15 @@ namespace Project4_WPF
         public string Id;
         private void LoadAssets(User users)
         {
+            //haald de gegevens op en vuld ze in de textvelden
+
             Id = users.Id.ToString();
             tbUserId.Text = users.Id.ToString();
             tbNaam.Text = users.Naam.ToString();
             tbE_Mail.Text = users.e_Mail.ToString();
             password = users.Wachtwoord;
+
+            //check welke rol er bij de gebruiker hoord
             User_Roles roles = cnn.GetRoles(Id.ToString());
             int Iroles = int.Parse(roles.role_Id.ToString());
             tbRoleId.Text = roles.role_Id.ToString();
@@ -68,6 +73,7 @@ namespace Project4_WPF
         }
         private void cbRole_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //past de geslecteerde rol aan
             CBselected = int.Parse(cbRole.SelectedIndex.ToString());
             switch (CBselected)
             {
@@ -93,9 +99,12 @@ namespace Project4_WPF
 
         private void btnAanpassen_Click(object sender, RoutedEventArgs e)
         {
+            //check of de textvelden zijn ingevuld
             int iID = int.Parse(tbUserId.Text.ToString());
             if (tbNaam.Text != "" || tbE_Mail.Text != "")
             {
+                //past de gegevens van de medewerker aan
+
                 cnn.EditUser(tbNaam.Text, tbE_Mail.Text, password, iID);
             }
             else
@@ -104,9 +113,12 @@ namespace Project4_WPF
             }
             if (tbWachtwoordOud.Text != "")
             {
+                //checkt of het wachtwoord in de textveld overeen komt met het wachtwoord in de database
                 bool Bwachtwoord = BCrypt.Net.BCrypt.Verify(tbWachtwoordOud.Text, password);
                 if (Bwachtwoord == true && tbWachtwoordNieuw.Text != "")
                 {
+                    //maakt het nieuwe wachtwoord en decrypt het
+
                     salt = BCrypt.Net.BCrypt.GenerateSalt();
                     hash = BCrypt.Net.BCrypt.HashPassword(tbWachtwoordNieuw.Text, salt);
                     int i = int.Parse(tbUserId.Text.ToString());
@@ -130,6 +142,7 @@ namespace Project4_WPF
 
             if (function == true)
             {
+                //checkt het Id, User Id en Role Id en past deze aan
                 CBselected = int.Parse(cbRole.SelectedIndex.ToString());
                 int UID = int.Parse(tbUserId.Text);
                 int RID = int.Parse(tbRoleId.Text);

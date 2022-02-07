@@ -66,6 +66,8 @@ namespace Project4_WPF
         }
         private void LoadAssets()
         {
+            //haalt de gegevens op en zet ze in de ListViews
+
             lvWerknemers.ItemsSource = cnn.GetAllUsers();
             lvPizzas.ItemsSource = cnn.GetOnlyPizzas();
         }
@@ -93,6 +95,8 @@ namespace Project4_WPF
 
         private void btnGridEmployees_Click(object sender, RoutedEventArgs e)
         {
+            //verbergd alle items behalve de medewerkers
+
             csEmployees.Visibility = Visibility.Visible;
             csPizzas.Visibility = Visibility.Hidden;
             btnGridEmployees.Visibility = Visibility.Hidden;
@@ -103,6 +107,8 @@ namespace Project4_WPF
 
         private void btnGridPizzas_Click(object sender, RoutedEventArgs e)
         {
+            //verbergd alle items behalve de pizza's
+
             csEmployees.Visibility = Visibility.Hidden;
             csPizzas.Visibility = Visibility.Visible;
             btnGridEmployees.Visibility = Visibility.Hidden;
@@ -112,6 +118,8 @@ namespace Project4_WPF
         }
         private void btnToevoegen_Click(object sender, RoutedEventArgs e)
         {
+            //gaat naar de pagina waar je medewerkers kan toevoegen
+
             ManagementToevoegen win = new ManagementToevoegen();
             click = 1;
             win.Show();
@@ -120,6 +128,8 @@ namespace Project4_WPF
         }
         private void btnToevoegenP_Click(object sender, RoutedEventArgs e)
         {
+            //gaat naar de pagina waar je pizza"s kan toevoegen
+
             ManagementPizzaToevoegen win = new ManagementPizzaToevoegen();
             click = 1;
             win.Show();
@@ -128,8 +138,12 @@ namespace Project4_WPF
         }
         private void btnWijzigen_Click(object sender, RoutedEventArgs e)
         {
+            //gaat naar de pagina waar je wijzigingen kan maken bij de medewerkers
+
             if (selectedMedewerker != null)
             {
+                //stuurd de gegevens van de medewerker door naar de andere pagina
+
                 User users = lvWerknemers.SelectedItem as User;
                 ManagementMedewerkersAanpassen win = new ManagementMedewerkersAanpassen(users);
                 click = 1;
@@ -145,8 +159,12 @@ namespace Project4_WPF
 
         private void btnWijzigenP_Click(object sender, RoutedEventArgs e)
         {
+            //gaat naar de pagina waar je wijzigen kan maken bij de pizza's
+
             if (selectedPizza != null)
             {
+                //stuurd de gegevens van de pizza door naar de andere pagina
+
                 Pizza pizzas = lvPizzas.SelectedItem as Pizza;
                 ManagementPizzaAanpassen win = new ManagementPizzaAanpassen(pizzas);
                 click = 1;
@@ -161,10 +179,16 @@ namespace Project4_WPF
         }
         private void btnVerwijderen_Click(object sender, RoutedEventArgs e)
         {
+            //verwijdered de geselecteerde medewerker
+
             User_Roles user_Roles = new User_Roles();
+
+            //kijkt of er een medewerker is geselecteerd
 
             if (selectedMedewerker != null)
             {
+                //verwijdered de geselecteerde medewerker
+
                 user_Roles.user_Id = selectedMedewerker.Id;
 
                 cnn.DeleteUsers(SelectedMedewerker);
@@ -179,8 +203,12 @@ namespace Project4_WPF
 
         private void btnVerwijderenP_Click(object sender, RoutedEventArgs e)
         {
+            //kijkt of er een medewerker is geselecteerd
+
             if (selectedPizza != null)
             {
+                //verwijderd de geselecteerde pizza
+
                 cnn.DeletePizza(selectedPizza);
                 LoadAssets();
             }
@@ -192,6 +220,8 @@ namespace Project4_WPF
         
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
+            //gaat terug naar de vorige pagina door alle andere items omzichtbaar te maken
+
             csEmployees.Visibility = Visibility.Hidden;
             csPizzas.Visibility = Visibility.Hidden;
             btnGridEmployees.Visibility = Visibility.Visible;
@@ -201,6 +231,8 @@ namespace Project4_WPF
         
         private void btnBackP_Click(object sender, RoutedEventArgs e)
         {
+            //gaat terug naar de vorige pagina door alle andere items omzichtbaar te maken
+
             csEmployees.Visibility = Visibility.Hidden;
             csPizzas.Visibility = Visibility.Hidden;
             btnGridEmployees.Visibility = Visibility.Visible;
@@ -210,6 +242,8 @@ namespace Project4_WPF
 
         private void btnUitloggen_Click(object sender, RoutedEventArgs e)
         {
+            //gaat terug naar de login pagina
+
             this.Close();
         }
     }

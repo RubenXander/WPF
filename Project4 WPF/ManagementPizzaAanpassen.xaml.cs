@@ -21,6 +21,8 @@ namespace Project4_WPF
     public partial class ManagementPizzaAanpassen : Window
     {
         DbConnection cnn = new DbConnection();
+        
+        //haalt de gestuurde gegevens op
         public ManagementPizzaAanpassen(Pizza pizzas)
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace Project4_WPF
 
         private void LoadAssets(Pizza pizzas)
         {
+            //laat de gegevens in de textvelden
             
             tbId.Text = pizzas.Id.ToString();
             tbPizza.Text = pizzas.Pizzas.ToString();
@@ -39,6 +42,8 @@ namespace Project4_WPF
 
         private void btnAanpassen_Click(object sender, RoutedEventArgs e)
         {
+            //check de ingevulde gegevens en past ze toe in de tabel
+
             int i = int.Parse(tbId.Text.ToString());
             cnn.EditPizza(tbPizza.Text, tbPrijs.Text, i);
             this.Close();

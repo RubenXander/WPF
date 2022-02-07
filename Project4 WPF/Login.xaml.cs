@@ -28,14 +28,21 @@ namespace Project4_WPF
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            //haalt gegevens van gebruikers op
+
             User login = cnn.GetLogin(tbGebruikersnaam.Text);
             string sLogin = login.Id.ToString();
             int iLogin = int.Parse(sLogin);
             if (iLogin > 0)
             {
+                //checkt op het wachtwoord klopt
+
                 string sWachtwoord = login.Wachtwoord.ToString();
                 MessageBox.Show("ID " + iLogin + " Wachtwoord " + sWachtwoord);
                 bool bWachtwoord = BCrypt.Net.BCrypt.Verify(tbWachtwoord.Text, sWachtwoord);
+                
+                //kijkt welke rol er bij de gebruikers hoort
+
                 if (bWachtwoord == true)
                 {
                     User_Roles Roles = cnn.GetRoles(login.Id.ToString());

@@ -28,15 +28,21 @@ namespace Project4_WPF
 
         private void btnAanmaken_Click(object sender, RoutedEventArgs e)
         {
+            //kijkt of de velden zijn gevuld
+
             if (tbPizza.Text == "" || tbPrijs.Text == "")
             {
                 MessageBox.Show("Aanmaken mislukt");
             }
             else
             {
+                //maakt een nieuwe lijst van pizzas uit de textvelden
+
                 Pizza P = new Pizza();
                 P.Pizzas = tbPizza.Text;
                 P.Prijs = tbPrijs.Text;
+
+                //haalt de laatste gegevens uit de lijst en voegd ze toe aan de database
 
                 cnn.CreatePizzas(P);
                 this.Close();
