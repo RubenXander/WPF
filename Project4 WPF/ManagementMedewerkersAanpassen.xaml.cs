@@ -25,6 +25,7 @@ namespace Project4_WPF
         private string salt;
         private string password;
         int CBselected;
+        bool function = true;
         public ManagementMedewerkersAanpassen(User users)
         {
             InitializeComponent();
@@ -111,34 +112,52 @@ namespace Project4_WPF
                     int i = int.Parse(tbUserId.Text.ToString());
                     cnn.EditUser(tbNaam.Text, tbE_Mail.Text, hash, i);
                 }
+                else if (Bwachtwoord == false)
+                {
+                    MessageBox.Show("Het wachtwoord is incorrect of niet ingevuld");
+                    function = false;
+                }
             }
-            CBselected = int.Parse(cbRole.SelectedIndex.ToString());
-             
-            int UID = int.Parse(tbUserId.Text);
-            int RID = int.Parse(tbRoleId.Text);
-            int URID = UID;
-            switch (CBselected)
+            if (tbWachtwoordNieuw.Text == "" && tbWachtwoordOud.Text != "")
             {
-                case 0:                
-                    cnn.EditUser_Roles(UID, RID, URID);
-                    break;
-                case 1:
-                    cnn.EditUser_Roles(UID, RID, URID);
-                    break;
-                case 2:
-                    cnn.EditUser_Roles(UID, RID, URID);
-                    break;
-                case 3:
-                    cnn.EditUser_Roles(UID, RID, URID);
-                    break;
-                case 4:
-                    cnn.EditUser_Roles(UID, RID, URID);
-                    break;
-                default:
-                    break;
+                MessageBox.Show("Je moet het oude wachtwoord invullen om een nieuw wachtwoord te maken");
+                function = false;
             }
-            this.Close();
+            else
+            {
+                function = true;
+            }
+
+            if (function == true)
+            {
+                CBselected = int.Parse(cbRole.SelectedIndex.ToString());
+                int UID = int.Parse(tbUserId.Text);
+                int RID = int.Parse(tbRoleId.Text);
+                int URID = UID;
+                switch (CBselected)
+                {
+                    case 0:
+                        cnn.EditUser_Roles(UID, RID, URID);
+                        break;
+                    case 1:
+                        cnn.EditUser_Roles(UID, RID, URID);
+                        break;
+                    case 2:
+                        cnn.EditUser_Roles(UID, RID, URID);
+                        break;
+                    case 3:
+                        cnn.EditUser_Roles(UID, RID, URID);
+                        break;
+                    case 4:
+                        cnn.EditUser_Roles(UID, RID, URID);
+                        break;
+                    default:
+                        break;
+                }
+                this.Close();
+            }
         }
+            
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Management win = new Management();
