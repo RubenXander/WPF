@@ -259,6 +259,20 @@ namespace Project4_WPF.Classes
                 cmd.ExecuteNonQuery();
             }
         }
+        public void EditUser_Roles(int user_id, int role_id, int id)
+        {
+            using (MySqlConnection con = new MySqlConnection(connString))
+            {
+                con.Open();
+                MySqlCommand cmd = con.CreateCommand();
+
+                cmd.CommandText = "UPDATE user_roles SET user_id = @user_id, role_id = @role_id WHERE id = @id";
+                cmd.Parameters.AddWithValue("@user_id", user_id);
+                cmd.Parameters.AddWithValue("@role_id", role_id);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+            }
+        }
         #endregion
 
         #region DeleteFunctions

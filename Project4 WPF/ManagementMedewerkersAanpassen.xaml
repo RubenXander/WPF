@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project4_WPF"
         mc:Ignorable="d"
+        Closing="Window_Closing"
         Title="ManagementMedewerkersAanpassen" Height="450" Width="400">
     <Grid>
         <!--#region GridColums&Rows -->
@@ -27,18 +28,34 @@
         <!--#endregion-->
         
         <TextBlock Grid.Column="1" Grid.Row="1" Text="Naam" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5" Margin="20,0,0,0"></TextBlock>
-        <TextBox x:Name="tbUserId" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" Margin="0,0,75,0" IsReadOnly="True"></TextBox>
+
+        <Border Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="17.5" Height="17.5" Margin="0,0,75,0" BorderThickness="0.5" BorderBrush="Black">
+            <Viewbox>
+                <TextBlock x:Name="tbUserId"></TextBlock>
+            </Viewbox>
+        </Border>
+        
+        
+        
         <TextBox x:Name="tbNaam" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="175"></TextBox>
 
         <TextBlock Grid.Column="1" Grid.Row="2" Text="E-Mail" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5"></TextBlock>
         <TextBox x:Name="tbE_Mail" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="175"></TextBox>
 
-        <TextBlock Grid.Column="1" Grid.Row="3" Text="Wachtwoord" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5"></TextBlock>
-        <TextBox x:Name="tbWachtwoord" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="175"></TextBox>
+        <TextBlock Grid.Column="1" Grid.Row="3" Text="Oud Wachtwoord" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5" Margin="0,0,0,40"></TextBlock>
+        <TextBox x:Name="tbWachtwoordOud" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="175" Margin="0,0,0,40"></TextBox>
+
+        <TextBlock Grid.Column="1" Grid.Row="3" Text="Nieuw Wachtwoord" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5" Margin="0,40,0,0"></TextBlock>
+        <TextBox x:Name="tbWachtwoordNieuw" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="175" Margin="0,40,0,0"></TextBox>
 
         <TextBlock Grid.Column="1" Grid.Row="4" Text="Role" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5"></TextBlock>
-        <TextBox x:Name="tRoleId" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" Margin="0,0,75,0" IsReadOnly="True"></TextBox>
-        <ComboBox x:Name="cbRole" Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="175">
+        
+        <Border Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="17.5" Height="17.5" Margin="0,0,75,0" BorderThickness="0.5" BorderBrush="Black">
+            <Viewbox>
+                <TextBlock x:Name="tbRoleId"></TextBlock>
+            </Viewbox>
+        </Border>
+        <ComboBox x:Name="cbRole" Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="175" SelectionChanged="cbRole_SelectionChanged">
             <ComboBoxItem Content="Balie"></ComboBoxItem>
             <ComboBoxItem Content="Bereiding"></ComboBoxItem>
             <ComboBoxItem Content="Bezorging"></ComboBoxItem>

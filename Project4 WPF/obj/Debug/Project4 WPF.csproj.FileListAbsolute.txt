@@ -43,7 +43,6 @@ C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debu
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Login.baml
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Management.g.cs
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Management.baml
-C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Project4 WPF.csproj.SuggestedBindingRedirects.cache
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\ManagementMedewerkersToevoegen.g.cs
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\ManagementMedewerkersToevoegen.baml
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\ManagementPizzaToevoegen.g.cs
@@ -52,3 +51,4 @@ C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debu
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\ManagementPizzaAanpassen.g.cs
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\ManagementMedewerkersAanpassen.baml
 C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\ManagementPizzaAanpassen.baml
+C:\Users\ruben\Desktop\School\Jaar 2\Project\Project 4\WPF\Project4 WPF\obj\Debug\Project4 WPF.csproj.SuggestedBindingRedirects.cache

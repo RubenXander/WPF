@@ -77,15 +77,6 @@ namespace Project4_WPF
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(Property));
         }
 
-        private void btnToevoegen_Click(object sender, RoutedEventArgs e)
-        {
-            ManagementToevoegen win = new ManagementToevoegen();
-            click = 1;
-            win.Show();
-            this.Close();
-            click = 0;
-        }
-
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             Login win2 = new Login();
@@ -119,30 +110,22 @@ namespace Project4_WPF
             btnUitloggen.Visibility = Visibility.Hidden;
             LoadAssets();
         }
-
-        private void btnBack_Click(object sender, RoutedEventArgs e)
+        private void btnToevoegen_Click(object sender, RoutedEventArgs e)
         {
-            csEmployees.Visibility = Visibility.Hidden;
-            csPizzas.Visibility = Visibility.Hidden;
-            btnGridEmployees.Visibility = Visibility.Visible;
-            btnGridPizzas.Visibility = Visibility.Visible;
-            btnUitloggen.Visibility = Visibility.Visible;
-        }
-
-        private void btnUitloggen_Click(object sender, RoutedEventArgs e)
-        {
+            ManagementToevoegen win = new ManagementToevoegen();
+            click = 1;
+            win.Show();
             this.Close();
+            click = 0;
         }
-
-        private void btnBackP_Click(object sender, RoutedEventArgs e)
+        private void btnToevoegenP_Click(object sender, RoutedEventArgs e)
         {
-            csEmployees.Visibility = Visibility.Hidden;
-            csPizzas.Visibility = Visibility.Hidden;
-            btnGridEmployees.Visibility = Visibility.Visible;
-            btnGridPizzas.Visibility = Visibility.Visible;
-            btnUitloggen.Visibility = Visibility.Visible;
+            ManagementPizzaToevoegen win = new ManagementPizzaToevoegen();
+            click = 1;
+            win.Show();
+            this.Close();
+            click = 0;
         }
-
         private void btnWijzigen_Click(object sender, RoutedEventArgs e)
         {
             if (selectedMedewerker != null)
@@ -156,35 +139,8 @@ namespace Project4_WPF
             }
             else
             {
-                MessageBox.Show("Selecteer eerst een Pizza");
+                MessageBox.Show("Selecteer eerst een Medewerker");
             }
-        }
-
-        private void btnVerwijderen_Click(object sender, RoutedEventArgs e)
-        {
-            User_Roles user_Roles = new User_Roles();
-
-            if (selectedMedewerker != null)
-            {
-                user_Roles.user_Id = selectedMedewerker.Id;
-                
-                cnn.DeleteUsers(SelectedMedewerker);
-                cnn.DeleteUser_Roles(user_Roles);
-                LoadAssets();
-            }
-            else
-            {
-                MessageBox.Show("Selecteer eerst een Pizza");
-            }
-        }
-
-        private void btnToevoegenP_Click(object sender, RoutedEventArgs e)
-        {
-            ManagementPizzaToevoegen win = new ManagementPizzaToevoegen();
-            click = 1;
-            win.Show();
-            this.Close();
-            click = 0;
         }
 
         private void btnWijzigenP_Click(object sender, RoutedEventArgs e)
@@ -203,6 +159,23 @@ namespace Project4_WPF
                 MessageBox.Show("Selecteer eerst een Pizza");
             }
         }
+        private void btnVerwijderen_Click(object sender, RoutedEventArgs e)
+        {
+            User_Roles user_Roles = new User_Roles();
+
+            if (selectedMedewerker != null)
+            {
+                user_Roles.user_Id = selectedMedewerker.Id;
+
+                cnn.DeleteUsers(SelectedMedewerker);
+                cnn.DeleteUser_Roles(user_Roles);
+                LoadAssets();
+            }
+            else
+            {
+                MessageBox.Show("Selecteer eerst een Pizza");
+            }
+        }
 
         private void btnVerwijderenP_Click(object sender, RoutedEventArgs e)
         {
@@ -215,6 +188,29 @@ namespace Project4_WPF
             {
                 MessageBox.Show("Selecteer eerst een Pizza");
             }
+        }
+        
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            csEmployees.Visibility = Visibility.Hidden;
+            csPizzas.Visibility = Visibility.Hidden;
+            btnGridEmployees.Visibility = Visibility.Visible;
+            btnGridPizzas.Visibility = Visibility.Visible;
+            btnUitloggen.Visibility = Visibility.Visible;
+        }
+        
+        private void btnBackP_Click(object sender, RoutedEventArgs e)
+        {
+            csEmployees.Visibility = Visibility.Hidden;
+            csPizzas.Visibility = Visibility.Hidden;
+            btnGridEmployees.Visibility = Visibility.Visible;
+            btnGridPizzas.Visibility = Visibility.Visible;
+            btnUitloggen.Visibility = Visibility.Visible;
+        }
+
+        private void btnUitloggen_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

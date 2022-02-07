@@ -36,7 +36,7 @@ namespace Project4_WPF
             {
                 Pizza P = new Pizza();
                 P.Pizzas = tbPizza.Text;
-                P.Prijs = "€ " + tbPrijs.Text;
+                P.Prijs = tbPrijs.Text;
 
                 cnn.CreatePizzas(P);
                 this.Close();
