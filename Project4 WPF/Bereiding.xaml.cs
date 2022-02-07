@@ -56,7 +56,7 @@ namespace Project4_WPF
             set { selectedStatus = value; }
         }
 
-        private List<string> stati = new List<string>() { "Bereid", "In de oven", "Klaar voor bezorging", "Klaar om op te halen" };
+        private List<string> stati = new List<string>() { "Besteld", "Bereid", "In de oven", "Klaar voor bezorging", "Klaar om op te halen" };
 
         public List<string> Stati
         {
