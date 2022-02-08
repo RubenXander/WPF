@@ -51,7 +51,7 @@ namespace Project4_WPF.Classes
             {
                 con.Open();
                 MySqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT o.id, o.customer_id, o.status, p.pizza, p.prijs FROM orders o INNER JOIN order_pizza op on o.id = op.order_id INNER JOIN pizza p ON p.id = op.pizza_id";
+                cmd.CommandText = "SELECT o.id, o.customer_id, o.status, p.pizza, p.price FROM orders o INNER JOIN order_pizza op on o.id = op.order_id INNER JOIN pizza p ON p.id = op.pizza_id";
                 MySqlDataReader reader = cmd.ExecuteReader();
                 dtUsers.Load(reader);
             }
@@ -78,7 +78,7 @@ namespace Project4_WPF.Classes
             {
                 con.Open();
                 MySqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = @"SELECT o.id, o.customer_id, o.status, p.pizza, p.prijs FROM orders o INNER JOIN order_pizza op on o.id = op.order_id INNER JOIN pizza p ON p.id = op.pizza_id WHERE o.id = @bestellingid";
+                cmd.CommandText = @"SELECT o.id, o.customer_id, o.status, p.pizza, p.price FROM orders o INNER JOIN order_pizza op on o.id = op.order_id INNER JOIN pizza p ON p.id = op.pizza_id WHERE o.id = @bestellingid";
                 cmd.Parameters.AddWithValue("@bestellingid", bestellingid);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 dtUsers.Load(reader);
@@ -116,7 +116,7 @@ namespace Project4_WPF.Classes
                 Pizza tmpMenu = new Pizza();
                 tmpMenu.Id = Convert.ToInt32(row["id"].ToString());
                 tmpMenu.Pizzas = row["pizza"].ToString();
-                tmpMenu.Prijs = row["prijs"].ToString();
+                tmpMenu.Prijs = row["price"].ToString();
                 ocReturnMenus.Add(tmpMenu);
             }
 
@@ -205,10 +205,10 @@ namespace Project4_WPF.Classes
                 con.Open();
                 MySqlCommand cmd = con.CreateCommand();
 
-                cmd.CommandText = "INSERT INTO `pizza` (`pizza`, `prijs`) VALUES (@pizza, @prijs) ";
+                cmd.CommandText = "INSERT INTO `pizza` (`pizza`, `price`) VALUES (@pizza, @price) ";
 
                 cmd.Parameters.AddWithValue("@pizza", pizza.Pizzas);
-                cmd.Parameters.AddWithValue("@prijs", pizza.Prijs);
+                cmd.Parameters.AddWithValue("@price", pizza.Prijs);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -236,9 +236,9 @@ namespace Project4_WPF.Classes
                 con.Open();
                 MySqlCommand cmd = con.CreateCommand();
 
-                cmd.CommandText = "UPDATE pizza SET pizza = @pizza, prijs = @prijs WHERE id = @id";
+                cmd.CommandText = "UPDATE pizza SET pizza = @pizza, price = @price WHERE id = @id";
                 cmd.Parameters.AddWithValue("@pizza", pizza);
-                cmd.Parameters.AddWithValue("@prijs", prijs);
+                cmd.Parameters.AddWithValue("@price", prijs);
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.ExecuteNonQuery();
             }

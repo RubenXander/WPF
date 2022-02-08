@@ -32,5 +32,13 @@ namespace Project4_WPF.Classes
             set { prijs = value; }
         }
 
+        private string description;
+
+        public string Description
+        {
+            get { return description; }
+            set { description = value; }
+        }
+
     }
 }

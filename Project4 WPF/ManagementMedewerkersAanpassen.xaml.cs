@@ -123,21 +123,25 @@ namespace Project4_WPF
                     hash = BCrypt.Net.BCrypt.HashPassword(tbWachtwoordNieuw.Text, salt);
                     int i = int.Parse(tbUserId.Text.ToString());
                     cnn.EditUser(tbNaam.Text, tbE_Mail.Text, hash, i);
+                    function = true;
                 }
                 else if (Bwachtwoord == false)
                 {
-                    MessageBox.Show("Het wachtwoord is incorrect of niet ingevuld");
+                    MessageBox.Show("Het ingevulde wachtwoord is onjuist");
                     function = false;
                 }
+                
             }
-            if (tbWachtwoordNieuw.Text == "" && tbWachtwoordOud.Text != "")
+            if (tbWachtwoordOud.Text != "" && tbWachtwoordNieuw.Text == "")
             {
-                MessageBox.Show("Je moet het oude wachtwoord invullen om een nieuw wachtwoord te maken");
+                MessageBox.Show("Vul een het nieuwe wachtwoord in om een nieuw wachtwoord te maken");
                 function = false;
             }
-            else
+
+            if (tbWachtwoordOud.Text == "" && tbWachtwoordNieuw.Text != "")
             {
-                function = true;
+                MessageBox.Show("Het oude wachtwoord moet worden ingevuld om een nieuw wachtwoord aan te maken");
+                function = false;
             }
 
             if (function == true)
