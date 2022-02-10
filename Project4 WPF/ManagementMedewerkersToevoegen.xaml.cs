@@ -66,7 +66,7 @@ namespace Project4_WPF
                 
                 //koppeld de gebruiker gegevens aan de koppel tabel
 
-                User user = cnn.GetLogin(tbE_Mail.Text);
+                User user = cnn.GetEmployee(tbE_Mail.Text);
                 User_Roles US = new User_Roles();
                 US.user_Id = int.Parse(user.Id.ToString());
 

@@ -145,6 +145,28 @@ namespace Project4_WPF.Classes
             };
         }
 
+        public User GetEmployee(string gebruikersnaam)
+        {
+            User login = new User();
+            DataTable DTinloggen = new DataTable();
+            using (MySqlConnection con = new MySqlConnection(connString))
+            {
+                con.Open();
+                MySqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT * FROM users WHERE email = @gebruikersnaam";
+                cmd.Parameters.AddWithValue("@gebruikersnaam", gebruikersnaam);
+                MySqlDataReader read = cmd.ExecuteReader();
+                DTinloggen.Load(read);
+
+                foreach (DataRow row in DTinloggen.Rows)
+                {
+                    login.Id = Convert.ToInt32(row["id"].ToString());
+                    login.Wachtwoord = row["password"].ToString();
+                }
+                return login;
+            };
+        }
+
         public User_Roles GetRoles(string UserId)
         {
             User_Roles login = new User_Roles();
