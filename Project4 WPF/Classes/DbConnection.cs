@@ -51,7 +51,7 @@ namespace Project4_WPF.Classes
             {
                 con.Open();
                 MySqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT o.id, o.customer_id, o.status, p.pizza, p.price FROM orders o INNER JOIN order_pizza op on o.id = op.order_id INNER JOIN pizza p ON p.id = op.pizza_id";
+                cmd.CommandText = "SELECT o.id, o.customer_id, o.status, p.pizza, p.price FROM orders o INNER JOIN order_pizza op on o.id = op.order_id INNER JOIN pizzas p ON p.id = op.pizza_id";
                 MySqlDataReader reader = cmd.ExecuteReader();
                 dtUsers.Load(reader);
             }
@@ -78,7 +78,7 @@ namespace Project4_WPF.Classes
             {
                 con.Open();
                 MySqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = @"SELECT o.id, o.customer_id, o.status, p.pizza, p.price FROM orders o INNER JOIN order_pizza op on o.id = op.order_id INNER JOIN pizza p ON p.id = op.pizza_id WHERE o.id = @bestellingid";
+                cmd.CommandText = @"SELECT o.id, o.customer_id, o.status, p.pizza, p.price FROM orders o INNER JOIN order_pizza op on o.id = op.order_id INNER JOIN pizzas p ON p.id = op.pizza_id WHERE o.id = @bestellingid";
                 cmd.Parameters.AddWithValue("@bestellingid", bestellingid);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 dtUsers.Load(reader);
@@ -106,7 +106,7 @@ namespace Project4_WPF.Classes
             {
                 con.Open();
                 MySqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT * FROM pizza";
+                cmd.CommandText = "SELECT * FROM pizzas";
                 MySqlDataReader reader = cmd.ExecuteReader();
                 dtUsers.Load(reader);
             }
@@ -205,7 +205,7 @@ namespace Project4_WPF.Classes
                 con.Open();
                 MySqlCommand cmd = con.CreateCommand();
 
-                cmd.CommandText = "INSERT INTO `pizza` (`pizza`, `price`) VALUES (@pizza, @price) ";
+                cmd.CommandText = "INSERT INTO `pizzas` (`pizza`, `price`) VALUES (@pizza, @price) ";
 
                 cmd.Parameters.AddWithValue("@pizza", pizza.Pizzas);
                 cmd.Parameters.AddWithValue("@price", pizza.Prijs);
@@ -236,7 +236,7 @@ namespace Project4_WPF.Classes
                 con.Open();
                 MySqlCommand cmd = con.CreateCommand();
 
-                cmd.CommandText = "UPDATE pizza SET pizza = @pizza, price = @price WHERE id = @id";
+                cmd.CommandText = "UPDATE pizzas SET pizza = @pizza, price = @price WHERE id = @id";
                 cmd.Parameters.AddWithValue("@pizza", pizza);
                 cmd.Parameters.AddWithValue("@price", prijs);
                 cmd.Parameters.AddWithValue("@id", id);
@@ -283,7 +283,7 @@ namespace Project4_WPF.Classes
                 con.Open();
                 MySqlCommand cmd = con.CreateCommand();
 
-                cmd.CommandText = "DELETE FROM pizza WHERE id = @id;";
+                cmd.CommandText = "DELETE FROM pizzas WHERE id = @id;";
                 cmd.Parameters.AddWithValue("@id", pizza.Id);
                 int nrOfRowsAffected = cmd.ExecuteNonQuery();
             }
