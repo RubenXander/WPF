@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Closing="Window_Closing"
         Title="ManagementPizzaToevoegen" Height="250" Width="300">
-    <Grid>
+    <Grid Background="#FF272727">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -23,12 +23,12 @@
             <RowDefinition Height="10"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="1" Grid.Row="1" Text="Pizzanaam" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5"></TextBlock>
-        <TextBox x:Name="tbPizza" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120"></TextBox>
+        <TextBlock Grid.Column="1" Grid.Row="1" Text="Pizzanaam" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5" Foreground="White"></TextBlock>
+        <TextBox x:Name="tbPizza" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" BorderBrush="Red"></TextBox>
 
-        <TextBlock Grid.Column="1" Grid.Row="2" Text="Prijs €" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5"></TextBlock>
-        <TextBox x:Name="tbPrijs" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120"></TextBox>
+        <TextBlock Grid.Column="1" Grid.Row="2" Text="Prijs €" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5" Foreground="White"></TextBlock>
+        <TextBox x:Name="tbPrijs" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" BorderBrush="Red"></TextBox>
 
-        <Button x:Name="btnAanmaken" Grid.Column="3" Grid.Row="3" Content="Aanmaken" Height="40" Width="120" Click="btnAanmaken_Click"></Button>
+        <Button x:Name="btnAanmaken" Grid.Column="3" Grid.Row="3" Content="Aanmaken" Height="40" Width="120" Click="btnAanmaken_Click" Background="Black" BorderBrush="Red" Foreground="White"></Button>
     </Grid>
 </Window>

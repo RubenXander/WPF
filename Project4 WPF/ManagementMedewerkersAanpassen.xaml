@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Closing="Window_Closing"
         Title="ManagementMedewerkersAanpassen" Height="450" Width="400">
-    <Grid>
+    <Grid Background="#FF272727">
         <!--#region GridColums&Rows -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"></ColumnDefinition>
@@ -27,41 +27,41 @@
         </Grid.RowDefinitions>
         <!--#endregion-->
         
-        <TextBlock Grid.Column="1" Grid.Row="1" Text="Naam" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5" Margin="20,0,0,0"></TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="1" Text="Naam" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5" Margin="20,0,0,0" Foreground="White"></TextBlock>
 
-        <Border Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="17.5" Height="17.5" Margin="0,0,75,0" BorderThickness="0.5" BorderBrush="Black">
+        <Border Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="17.5" Height="17.5" Margin="0,0,75,0" BorderThickness="0.5" BorderBrush="White">
             <Viewbox>
-                <TextBlock x:Name="tbUserId"></TextBlock>
+                <TextBlock x:Name="tbUserId" Foreground="White"></TextBlock>
             </Viewbox>
         </Border>
         
         
         
-        <TextBox x:Name="tbNaam" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="175"></TextBox>
+        <TextBox x:Name="tbNaam" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="175" BorderBrush="Blue"></TextBox>
 
-        <TextBlock Grid.Column="1" Grid.Row="2" Text="E-Mail" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5"></TextBlock>
-        <TextBox x:Name="tbE_Mail" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="175"></TextBox>
+        <TextBlock Grid.Column="1" Grid.Row="2" Text="E-Mail" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5" Foreground="White"></TextBlock>
+        <TextBox x:Name="tbE_Mail" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="175" BorderBrush="Blue"></TextBox>
 
-        <TextBlock Grid.Column="1" Grid.Row="3" Text="Oud Wachtwoord" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5" Margin="0,0,0,40"></TextBlock>
-        <TextBox x:Name="tbWachtwoordOud" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="175" Margin="0,0,0,40"></TextBox>
+        <TextBlock Grid.Column="1" Grid.Row="3" Text="Oud Wachtwoord" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5" Margin="0,0,0,40" Foreground="White"></TextBlock>
+        <TextBox x:Name="tbWachtwoordOud" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="175" Margin="0,0,0,40" BorderBrush="Blue"></TextBox>
 
-        <TextBlock Grid.Column="1" Grid.Row="3" Text="Nieuw Wachtwoord" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5" Margin="0,40,0,0"></TextBlock>
-        <TextBox x:Name="tbWachtwoordNieuw" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="175" Margin="0,40,0,0"></TextBox>
+        <TextBlock Grid.Column="1" Grid.Row="3" Text="Nieuw Wachtwoord" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5" Margin="0,40,0,0" Foreground="White"></TextBlock>
+        <TextBox x:Name="tbWachtwoordNieuw" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="175" Margin="0,40,0,0" BorderBrush="Blue"></TextBox>
 
-        <TextBlock Grid.Column="1" Grid.Row="4" Text="Role" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5"></TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="4" Text="Role" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5" Foreground="White"></TextBlock>
         
-        <Border Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="17.5" Height="17.5" Margin="0,0,75,0" BorderThickness="0.5" BorderBrush="Black">
+        <Border Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="17.5" Height="17.5" Margin="0,0,75,0" BorderThickness="0.5" BorderBrush="White">
             <Viewbox>
-                <TextBlock x:Name="tbRoleId"></TextBlock>
+                <TextBlock x:Name="tbRoleId" Foreground="White"></TextBlock>
             </Viewbox>
         </Border>
-        <ComboBox x:Name="cbRole" Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="175" SelectionChanged="cbRole_SelectionChanged">
+        <ComboBox x:Name="cbRole" Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="175" SelectionChanged="cbRole_SelectionChanged" BorderBrush="Blue" BorderThickness="0.5">
             <ComboBoxItem Content="Balie"></ComboBoxItem>
             <ComboBoxItem Content="Bereiding"></ComboBoxItem>
             <ComboBoxItem Content="Bezorging"></ComboBoxItem>
             <ComboBoxItem Content="Management"></ComboBoxItem>
         </ComboBox>
 
-        <Button x:Name="btnAanpassen" Grid.Column="3" Grid.Row="5" Content="Aanpassen" Height="40" Width="120" Click="btnAanpassen_Click"></Button>
+        <Button x:Name="btnAanpassen" Grid.Column="3" Grid.Row="5" Content="Aanpassen" Height="40" Width="120" Click="btnAanpassen_Click" BorderBrush="Blue" Background="Black" Foreground="White"></Button>
     </Grid>
 </Window>

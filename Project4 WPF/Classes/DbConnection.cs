@@ -51,7 +51,7 @@ namespace Project4_WPF.Classes
             {
                 con.Open();
                 MySqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT o.id, o.customer_id, o.status, p.pizza, p.price FROM orders o INNER JOIN order_pizza op on o.id = op.order_id INNER JOIN pizzas p ON p.id = op.pizza_id";
+                cmd.CommandText = "SELECT o.id, o.user_id, o.status, p.pizza, p.price FROM orders o INNER JOIN order_pizza op on o.id = op.order_id INNER JOIN pizzas p ON p.id = op.pizza_id";
                 MySqlDataReader reader = cmd.ExecuteReader();
                 dtUsers.Load(reader);
             }
@@ -60,7 +60,7 @@ namespace Project4_WPF.Classes
             {
                 Orders tmpMenu = new Orders();
                 tmpMenu.Id = Convert.ToInt32(row["id"].ToString());
-                tmpMenu.Customer_id = Convert.ToInt32(row["customer_id"].ToString());
+                tmpMenu.User_id = Convert.ToInt32(row["user_id"].ToString());
                 tmpMenu.Status = row["status"].ToString();
                 tmpMenu.Pizza = row["pizza"].ToString();
                 ocReturnMenus.Add(tmpMenu);
@@ -78,7 +78,7 @@ namespace Project4_WPF.Classes
             {
                 con.Open();
                 MySqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = @"SELECT o.id, o.customer_id, o.status, p.pizza, p.price FROM orders o INNER JOIN order_pizza op on o.id = op.order_id INNER JOIN pizzas p ON p.id = op.pizza_id WHERE o.id = @bestellingid";
+                cmd.CommandText = @"SELECT o.id, o.user_id, o.status, p.pizza, p.price FROM orders o INNER JOIN order_pizza op on o.id = op.order_id INNER JOIN pizzas p ON p.id = op.pizza_id WHERE o.id = @bestellingid";
                 cmd.Parameters.AddWithValue("@bestellingid", bestellingid);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 dtUsers.Load(reader);
@@ -88,7 +88,7 @@ namespace Project4_WPF.Classes
             {
                 Orders tmpMenu = new Orders();
                 tmpMenu.Id = Convert.ToInt32(row["id"].ToString());
-                tmpMenu.Customer_id = Convert.ToInt32(row["customer_id"].ToString());
+                tmpMenu.User_id = Convert.ToInt32(row["user_id"].ToString());
                 tmpMenu.Status = row["status"].ToString();
                 tmpMenu.Pizza = row["pizza"].ToString();
                 ocReturnMenus.Add(tmpMenu);

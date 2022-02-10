@@ -9,7 +9,7 @@ namespace Project4_WPF.Classes
     public class Orders
     {
         private int id;
-        private int customer_id;
+        private int user_id;
         private string status;
         private string pizza;
 
@@ -19,10 +19,10 @@ namespace Project4_WPF.Classes
             set { id = value; }
         }
 
-        public int Customer_id
+        public int User_id
         {
-            get { return customer_id; }
-            set { customer_id = value; }
+            get { return user_id; }
+            set { user_id = value; }
         }
         
         public string Status

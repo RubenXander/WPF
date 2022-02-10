@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Closing="Window_Closing"
         Title="ManagementPizzaAanpassen" Height="250" Width="300">
-    <Grid>
+    <Grid Background="#FF272727">
         <!--#region GridColumns&Rows -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"></ColumnDefinition>
@@ -25,13 +25,13 @@
             <RowDefinition Height="10"></RowDefinition>
         </Grid.RowDefinitions>
         <!--#endregion-->
-        <TextBox x:Name="tbId" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" IsReadOnly="True"></TextBox>
-        <TextBlock Grid.Column="1" Grid.Row="2" Text="Pizzanaam" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5"></TextBlock>
-        <TextBox x:Name="tbPizza" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120"></TextBox>
+        <TextBox x:Name="tbId" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" IsReadOnly="True" BorderBrush="Red" Background="Black" Foreground="White"></TextBox>
+        <TextBlock Grid.Column="1" Grid.Row="2" Text="Pizzanaam" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5" Foreground="White"></TextBlock>
+        <TextBox x:Name="tbPizza" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" BorderBrush="Red"></TextBox>
 
-        <TextBlock Grid.Column="1" Grid.Row="3" Text="Prijs €" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5"></TextBlock>
-        <TextBox x:Name="tbPrijs" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120"></TextBox>
+        <TextBlock Grid.Column="1" Grid.Row="3" Text="Prijs €" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17.5" Foreground="White"></TextBlock>
+        <TextBox x:Name="tbPrijs" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" BorderBrush="Red"></TextBox>
 
-        <Button x:Name="btnAanpassen" Grid.Column="3" Grid.Row="4" Content="Aanpassen" Height="40" Width="120" Click="btnAanpassen_Click"></Button>
+        <Button x:Name="btnAanpassen" Grid.Column="3" Grid.Row="4" Content="Aanpassen" Height="40" Width="120" Click="btnAanpassen_Click" Background="Black" BorderBrush="Red" Foreground="White"></Button>
     </Grid>
 </Window>
