@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Closing="Window_Closing"
         Title="Management" Height="600" Width="700">
-    <Grid x:Name="MainGrid" Background="#FF131313">
+    <Grid x:Name="MainGrid" Background="#FF272727">
         <!--#region GridColumns&Rows -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"></ColumnDefinition>
@@ -28,8 +28,8 @@
         </Grid.RowDefinitions>
         <!--#endregion-->
         
-        <Button x:Name="btnGridPizzas" Grid.Column="2" Grid.Row="2" Height="50" Width="150" Content="Pizzas" FontSize="20" Click="btnGridPizzas_Click"></Button>
-        <Button x:Name="btnGridEmployees" Grid.Column="4" Grid.Row="2" Height="50" Width="150" Content="Medewerkers" FontSize="20" Click="btnGridEmployees_Click"></Button>
+        <Button x:Name="btnGridPizzas" Grid.Column="2" Grid.Row="2" Height="50" Width="150" Content="Pizzas" FontSize="20" Click="btnGridPizzas_Click" Background="Red" BorderBrush="Black" Foreground="White" FontWeight="Bold"></Button>
+        <Button x:Name="btnGridEmployees" Grid.Column="4" Grid.Row="2" Height="50" Width="150" Content="Medewerkers" FontSize="20" Click="btnGridEmployees_Click" Background="#FF0010FF" BorderBrush="Black" FontWeight="Bold"></Button>
 
         <Button x:Name="btnUitloggen" Grid.Column="5" Grid.Row="4" Height="35" Width="100" Content="Uitloggen" FontSize="20" Click="btnUitloggen_Click"></Button>
         
@@ -58,7 +58,7 @@
                 </Grid.RowDefinitions>
                 <!--#endregion-->
 
-                <ListView x:Name="lvWerknemers" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="4" ItemsSource="{Binding User}" SelectedItem="{Binding SelectedMedewerker, UpdateSourceTrigger=PropertyChanged}">
+                <ListView x:Name="lvWerknemers" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="4" ItemsSource="{Binding User}" SelectedItem="{Binding SelectedMedewerker, UpdateSourceTrigger=PropertyChanged}" BorderBrush="#FF0040FF" Foreground="White" Background="Black">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextBlock>
@@ -74,11 +74,11 @@
                     </ListView.ItemTemplate>
                 </ListView>
 
-                <Button x:Name="btnToevoegen" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="2" Height="40" Width="150" Content="Aanmaken" Click="btnToevoegen_Click"></Button>
-                <Button x:Name="btnWijzigen" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="3" Height="40" Width="150" Content="Wijzigen" Click="btnWijzigen_Click"></Button>
-                <Button x:Name="btnVerwijderen" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="4" Height="40" Width="150" Content="Verwijderen" Click="btnVerwijderen_Click"></Button>
+                <Button x:Name="btnToevoegen" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="2" Height="40" Width="150" Content="Aanmaken" Click="btnToevoegen_Click" Background="Black" BorderBrush="Blue" Foreground="White"></Button>
+                <Button x:Name="btnWijzigen" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="3" Height="40" Width="150" Content="Wijzigen" Click="btnWijzigen_Click" Background="Black" BorderBrush="Blue" Foreground="White"></Button>
+                <Button x:Name="btnVerwijderen" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="4" Height="40" Width="150" Content="Verwijderen" Click="btnVerwijderen_Click" Background="Black" Foreground="White" BorderBrush="Blue"></Button>
 
-                <Button x:Name="btnBack" Grid.Column="6" Grid.Row="5" Height="35" Width="75" Content="Terug" FontSize="20" Click="btnBack_Click"></Button>
+                <Button x:Name="btnBack" Grid.Column="6" Grid.Row="5" Height="35" Width="75" Content="Terug" FontSize="20" Click="btnBack_Click" Background="Black" BorderBrush="Blue" Foreground="White"></Button>
             </Grid>
         </Canvas>
 
@@ -107,7 +107,7 @@
                 </Grid.RowDefinitions>
                 <!--#endregion-->
 
-                <ListView x:Name="lvPizzas" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="4" ItemsSource="{Binding Pizza}" SelectedItem="{Binding SelectedPizza, UpdateSourceTrigger=PropertyChanged}">
+                <ListView x:Name="lvPizzas" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="4" ItemsSource="{Binding Pizza}" SelectedItem="{Binding SelectedPizza, UpdateSourceTrigger=PropertyChanged}" BorderBrush="Red" Foreground="White" Background="Black">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextBlock>
@@ -122,11 +122,11 @@
                     </ListView.ItemTemplate>
                 </ListView>
 
-                <Button x:Name="btnToevoegenP" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="2" Height="40" Width="150" Content="Aanmaken" Click="btnToevoegenP_Click"></Button>
-                <Button x:Name="btnWijzigenP" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="3" Height="40" Width="150" Content="Wijzigen" Click="btnWijzigenP_Click"></Button>
-                <Button x:Name="btnVerwijderenP" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="4" Height="40" Width="150" Content="Verwijderen" Click="btnVerwijderenP_Click"></Button>
+                <Button x:Name="btnToevoegenP" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="2" Height="40" Width="150" Content="Aanmaken" Click="btnToevoegenP_Click" BorderBrush="Red" Background="Black" Foreground="White"></Button>
+                <Button x:Name="btnWijzigenP" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="3" Height="40" Width="150" Content="Wijzigen" Click="btnWijzigenP_Click" Background="Black" BorderBrush="Red" Foreground="White"></Button>
+                <Button x:Name="btnVerwijderenP" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="4" Height="40" Width="150" Content="Verwijderen" Click="btnVerwijderenP_Click" Background="Black" BorderBrush="Red" Foreground="White"></Button>
                 
-                <Button x:Name="btnBackP" Grid.Column="6" Grid.Row="5" Height="35" Width="75" Content="Terug" FontSize="20" Click="btnBackP_Click"></Button>
+                <Button x:Name="btnBackP" Grid.Column="6" Grid.Row="5" Height="35" Width="75" Content="Terug" FontSize="20" Click="btnBackP_Click" Background="Black" BorderBrush="Red" Foreground="White"></Button>
             </Grid>
         </Canvas>
         
